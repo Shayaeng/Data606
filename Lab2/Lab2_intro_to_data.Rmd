@@ -367,9 +367,18 @@ nycflights %>%
 
 **Insert your answer here**
 
-```{r}
-
-```
+Basing your choice of which month to travel on the median maximizes the
+chance of being in the desired group. You would have a 50% chance of
+being delayed the median amount or less. However, that doesn't factor in
+the length of the delays at all. If the distribution of the delays is
+uneven, for example, if half of the delays are under 10 minutes and the
+other half range all the way up to 12 hours, then there is a very
+significant chance of being delayed a lot more than ten minutes. If you
+use the mean to decide which airport to use, then the total length of
+the delays are factored in to the equation. In the above example, this
+would tell you a more accurate time you might be delayed assuming you do
+end up being delayed. However, one extreme outlier can heavily distort
+the mean and make you make the wrong decision.
 
 ### On time departure rate for NYC airports
 
@@ -427,6 +436,12 @@ ggplot(data = nycflights, aes(x = origin, fill = dep_type)) +
 
 **Insert your answer here**
 
+Based on the above information, we see LGA has an on-time departure rate
+of 0.728. This is the highest of the three NYC airports and would
+therefor be the best choice for someone who only cares about his chances
+of getting delayed or not. This does not factor in carrier or length of
+the delay.
+
 ------------------------------------------------------------------------
 
 ## More Practice
@@ -439,11 +454,30 @@ ggplot(data = nycflights, aes(x = origin, fill = dep_type)) +
 
 **Insert your answer here**
 
+```{r}
+nycflights <- nycflights %>%
+  mutate(avg_speed = (distance / (air_time / 60)))
+```
+
 8.  Make a scatterplot of `avg_speed` vs. `distance`. Describe the
     relationship between average speed and distance. **Hint:** Use
     `geom_point()`.
 
 **Insert your answer here**
+
+```{r}
+ggplot(data = nycflights, aes(x =avg_speed, y =distance)) +
+  geom_point()
+```
+
+As we can see in the above scatterplot, there is a distinct correlation
+between the distance flown and the average speed. The longer the
+distance flown, the faster the average speed is. This is probably due to
+the ratio of the beginng and end of the flight, when the plane flies
+slower, to the total flight duration. The longer the flight is, the less
+those periods drag down the average speed. It is possible that the
+median flight speed is the same regardless of flight duration. This is
+another instance of the pros and cons of using mean versus median.
 
 9.  Replicate the following plot. **Hint:** The data frame plotted only
     contains flights from American Airlines, Delta Airlines, and United
@@ -460,3 +494,5 @@ ggplot(data = dl_aa_ua, aes(x = dep_delay, y = arr_delay, color = carrier)) +
 ```
 
 **Insert your answer here**
+
+The cutoff time seems
