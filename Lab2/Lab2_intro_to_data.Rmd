@@ -488,11 +488,31 @@ another instance of the pros and cons of using mean versus median.
 
 ```{r plot-to-replicate, echo=FALSE, fig.show="asis", fig.width=7, fig.height=4}
 dl_aa_ua <- nycflights %>%
-  filter(carrier == "AA" | carrier == "DL" | carrier == "UA")
-ggplot(data = dl_aa_ua, aes(x = dep_delay, y = arr_delay, color = carrier)) +
-  geom_point()
+  filter(carrier == "AA" | carrier == "DL" | carrier == "UA",)
+full_plot <- ggplot(data = dl_aa_ua, aes(x = dep_delay, y = arr_delay, color = carrier)) +
+  geom_point() +
+  geom_smooth(color = 'black', se = FALSE) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  ylab("Arrival delay in minutes") +
+  xlab("Departure delay in minutes")
+relevant_section <- full_plot + coord_cartesian(xlim = c(-50, 150), ylim = c(-50, 150))
+zoomed_plot <- full_plot + coord_cartesian(xlim = c(-20, 20), ylim = c(-10, 20))
+print(relevant_section)
+print(zoomed_plot)
+
 ```
 
 **Insert your answer here**
 
-The cutoff time seems
+Here I zoomed in to the original plot twice. The first one I zoomed in
+just enough to isolate the datapoints needed to answer the question. The
+furthest observed datapoint where someone arrived on time was after a
+delay of around 65 minutes. This obviously doesn't mean one can
+**expect** to arrive on time, just that it is **possible**. In the
+second zoom, we can easily see where the fit line and 0 miute arrival
+delay overlap. It seems to be at around 9 minutes departure delay. This
+implies that someone could have a delay of around 9 minutes and still
+reasonably expect to arrive in time. This doesn't take into account the
+length of the flight. A shorter flight would have a much harder time
+making up for any delay as opposed to a longer one.
+
