@@ -93,15 +93,15 @@ ggplot(dq_mcd, aes(x = cal_fat)) +
 The two restaurants have very similar distributions, with the majority
 of menu items having less than 400 calories from fat. There are some
 noticeable differences though. The Dairy Queen menu seems to have more
-lower calorie options, as indicated by the highest bar being earlier,
-and less, or none, extremely high calorie options. The distribution
-appears to b relatively normal by both restaurants other than some
-extreme outliers in the McDonald's menu.
+low calorie options, as indicated by the highest bar being earlier, and
+less, or none, extremely high calorie options. The distribution appears
+to be relatively normal by both restaurants other than some extreme
+outliers in the McDonald's menu.
 
 ## The normal distribution
 
 In your description of the distributions, did you use words like
-*bell-shaped*or *normal*? It's tempting to say so when faced with a
+*bell-shaped* or *normal*? It's tempting to say so when faced with a
 unimodal symmetric distribution.
 
 To see how accurate that description is, you can plot a normal
@@ -351,7 +351,12 @@ dairy_queen %>%
   summarise(percent = n() / nrow(dairy_queen))
 ```
 
-## The Dairy Queen sodium probabilities were a lot closer aligned than than the McDonald probabilities. This implies that the Dairy Queen sodium amounts is more evenly distributed that McDonalds. However, since we were dealing with the upper boundaries of the distributions we are more prone to outliers having a larger impact. This is particularly true in the case of Dairy Queen
+The Dairy Queen sodium probabilities were a lot closer aligned than than
+the McDonald probabilities. This implies that the Dairy Queen sodium
+amounts is more evenly distributed that McDonalds. However, since we
+were dealing with the upper boundaries of the distributions we are more
+prone to outliers having a larger impact. This is particularly true in
+the case of Dairy Queen.
 
 ## More Practice
 
