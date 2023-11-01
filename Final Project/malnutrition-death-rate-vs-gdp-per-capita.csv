@@ -1,4 +1,4 @@
-Entity,Code,Year,Deaths - Protein-energy malnutrition - Sex: Both - Age: Age-standardized (Rate),"GDP per capita, PPP (constant 2017 international $)",Population (historical estimates),Continent
+Entity,Code,Year,Deaths_Protein-energy-malnutrition,GDP_per_capita_PPP_(2017),Population,Continent
 Abkhazia,OWID_ABK,2015,,,,Asia
 Afghanistan,AFG,1990,11.04,,10694804,
 Afghanistan,AFG,1991,9.93,,10745168,
